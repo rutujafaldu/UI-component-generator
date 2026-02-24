@@ -84,7 +84,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 | Technology                   | Purpose                          |
 | ---------------------------- | -------------------------------- |
-| Next.js 14 (App Router)      | Framework                        |
+| Next.js 15 (App Router)      | Framework                        |
 | TypeScript (strict)          | Language                         |
 | OpenAI GPT-4o                | AI component generation          |
 | Figma REST API               | Design import                    |
