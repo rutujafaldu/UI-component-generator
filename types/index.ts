@@ -11,7 +11,7 @@ export interface GeneratedComponent {
   cssCode: string | null;
 }
 
-export type CodeTab = "component" | "types" | "story" | "test" | "css";
+export type CodeTab = "preview" | "component" | "types" | "story" | "test" | "css";
 
 export interface GenerateRequest {
   description: string;

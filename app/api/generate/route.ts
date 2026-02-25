@@ -17,9 +17,9 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    if (!process.env.OPENAI_API_KEY) {
+    if (!process.env.AZURE_OPENAI_API_KEY) {
       return NextResponse.json(
-        { error: "OpenAI API key is not configured." },
+        { error: "Azure OpenAI API key is not configured." },
         { status: 500 }
       );
     }

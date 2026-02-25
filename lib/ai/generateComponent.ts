@@ -1,23 +1,32 @@
-import OpenAI from "openai";
+//import OpenAI from "openai";
+import { AzureOpenAI } from "openai";
 import { GeneratedComponent, StyleOption } from "@/types";
 import { buildTailwindPrompt } from "./prompts/tailwindPrompt";
 import { buildBasicCssPrompt } from "./prompts/basicCssPrompt";
+
+const endpoint = "https://arjundpatel-0991-resource.cognitiveservices.azure.com/";
+const modelName = "o4-mini";
+const deployment = "o4-mini";
 
 export async function generateComponent(
   description: string,
   styleOption: StyleOption
 ): Promise<GeneratedComponent> {
-  const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+  //const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+  const apiKey = process.env.AZURE_OPENAI_API_KEY;
+  const apiVersion = "2025-04-01-preview";
+  const options = { endpoint, apiKey, deployment, apiVersion }
+
+  const client = new AzureOpenAI(options);
 
   const prompt =
     styleOption === "tailwind"
       ? buildTailwindPrompt(description)
       : buildBasicCssPrompt(description);
 
-  const response = await openai.chat.completions.create({
-    model: "gpt-4o",
+  const response = await client.chat.completions.create({
+    model: modelName,
     messages: [{ role: "user", content: prompt }],
-    temperature: 0.4,
     response_format: { type: "json_object" },
   });
 

@@ -41,8 +41,8 @@ cd UI-component-generator
 npm install
 
 # Set up environment variables
-cp .env.example .env.local
-# Edit .env.local and add your OPENAI_API_KEY
+cp .env.example .env
+# Edit .env.local and add your AZURE_OPENAI_API_KEY/OPENAI_API_KEY
 
 # Start the development server
 npm run dev
@@ -54,9 +54,9 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Environment Variables
 
-| Variable          | Description                                 | Required |
-| ----------------- | ------------------------------------------- | -------- |
-| `OPENAI_API_KEY`  | Your OpenAI API key (GPT-4o access needed)  | ✅        |
+| Variable         | Description                                | Required |
+| ---------------- | ------------------------------------------ | -------- |
+| `OPENAI_API_KEY` | Your OpenAI API key (GPT-4o access needed) | ✅       |
 
 ---
 
@@ -82,18 +82,18 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Tech Stack
 
-| Technology                   | Purpose                          |
-| ---------------------------- | -------------------------------- |
-| Next.js 15 (App Router)      | Framework                        |
-| TypeScript (strict)          | Language                         |
-| OpenAI GPT-4o                | AI component generation          |
-| Figma REST API               | Design import                    |
-| Tailwind CSS                 | App UI styling                   |
-| react-syntax-highlighter     | Code highlighting                |
-| prettier                     | Server-side code formatting      |
-| jszip                        | ZIP file generation              |
-| lucide-react                 | Icons                            |
-| react-hot-toast              | Notifications                    |
+| Technology               | Purpose                     |
+| ------------------------ | --------------------------- |
+| Next.js 15 (App Router)  | Framework                   |
+| TypeScript (strict)      | Language                    |
+| OpenAI GPT-4o            | AI component generation     |
+| Figma REST API           | Design import               |
+| Tailwind CSS             | App UI styling              |
+| react-syntax-highlighter | Code highlighting           |
+| prettier                 | Server-side code formatting |
+| jszip                    | ZIP file generation         |
+| lucide-react             | Icons                       |
+| react-hot-toast          | Notifications               |
 
 ---
 

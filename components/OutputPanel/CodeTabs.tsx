@@ -9,6 +9,7 @@ interface CodeTabsProps {
 }
 
 const tabs: { id: CodeTab; label: string }[] = [
+  { id: "preview", label: "Preview" },
   { id: "component", label: "Component (.tsx)" },
   { id: "types", label: "Types (.ts)" },
   { id: "story", label: "Story (.stories.tsx)" },

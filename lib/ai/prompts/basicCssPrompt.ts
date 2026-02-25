@@ -10,6 +10,7 @@ STRICT REQUIREMENTS:
 4. Use functional components with React hooks where needed.
 5. The component should be accessible (ARIA attributes where appropriate).
 6. Make it visually polished and production-ready.
+7. You MUST implement EVERY feature, state, and variant explicitly mentioned in the description. Do not omit any requested functionality.
 
 You MUST respond with ONLY a valid JSON object (no markdown, no code fences, no explanation) with EXACTLY these keys:
 {

@@ -37,7 +37,9 @@ export default function Home() {
           | { error: string };
         if (!figmaRes.ok) {
           throw new Error(
-            "error" in figmaData ? figmaData.error : "Failed to import Figma file"
+            "error" in figmaData
+              ? figmaData.error
+              : "Failed to import Figma file",
           );
         }
         finalDescription = (figmaData as { description: string }).description;
@@ -55,12 +57,12 @@ export default function Home() {
 
       if (!genRes.ok) {
         throw new Error(
-          "error" in genData ? genData.error : "Failed to generate component"
+          "error" in genData ? genData.error : "Failed to generate component",
         );
       }
 
       setGeneratedComponent(genData as GeneratedComponent);
-      setActiveTab("component");
+      setActiveTab("preview");
       toast.success("Component generated successfully!");
     } catch (err) {
       const message =

@@ -4,6 +4,7 @@ import { Code2 } from "lucide-react";
 import { GeneratedComponent, CodeTab } from "@/types";
 import CodeTabs from "./CodeTabs";
 import CodePreview from "./CodePreview";
+import LivePreview from "./LivePreview";
 
 interface OutputPanelProps {
   generatedComponent: GeneratedComponent | null;
@@ -13,7 +14,7 @@ interface OutputPanelProps {
 
 function getCodeForTab(
   component: GeneratedComponent,
-  tab: CodeTab
+  tab: CodeTab,
 ): { code: string; language: string } {
   switch (tab) {
     case "component":
@@ -44,9 +45,12 @@ export default function OutputPanel({
         <div className="flex flex-col items-center justify-center gap-4 rounded-lg border border-dashed border-gray-700 bg-gray-800/50 py-16 text-center">
           <Code2 className="h-12 w-12 text-gray-600" />
           <div>
-            <p className="text-gray-400">Your generated component will appear here</p>
+            <p className="text-gray-400">
+              Your generated component will appear here
+            </p>
             <p className="mt-1 text-sm text-gray-600">
-              Enter a description and click {'"Generate Component"'} to get started
+              Enter a description and click {'"Generate Component"'} to get
+              started
             </p>
           </div>
         </div>
@@ -62,10 +66,21 @@ export default function OutputPanel({
             onChange={onTabChange}
             hasCss={!!generatedComponent.cssCode}
           />
-          <CodePreview
-            key={activeTab}
-            {...getCodeForTab(generatedComponent, activeTab)}
-          />
+          {activeTab === "preview" ? (
+            <LivePreview
+              componentCode={generatedComponent.componentCode}
+              cssCode={generatedComponent.cssCode}
+              componentName={generatedComponent.componentName}
+              styleOption={
+                generatedComponent.cssCode ? "basic-css" : "tailwind"
+              }
+            />
+          ) : (
+            <CodePreview
+              key={activeTab}
+              {...getCodeForTab(generatedComponent, activeTab)}
+            />
+          )}
         </div>
       )}
     </div>
