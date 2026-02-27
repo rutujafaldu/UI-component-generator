@@ -1,7 +1,13 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { AlertTriangle, RefreshCw, Maximize2, Minimize2 } from "lucide-react";
+import {
+  AlertTriangle,
+  RefreshCw,
+  Maximize2,
+  Minimize2,
+  X,
+} from "lucide-react";
 
 interface LivePreviewProps {
   componentCode: string;
@@ -116,12 +122,10 @@ export default function LivePreview({
       var rawCode = \`${escapedCode}\`;
 
       // Remove import lines (we provide everything globally)
-      // Handle single-line imports: import X from 'y'; import { A, B } from 'y';
-      rawCode = rawCode.replace(/^import\\s+.*?from\\s+['"][^'"]*['"];?\\s*$/gm, '');
+      // Handle all imports (single-line and multi-line) that end with from '...'
+      rawCode = rawCode.replace(/^import\\s[\\s\\S]*?\\sfrom\\s+['"][^'"]*['"];?\\s*$/gm, '');
       // Handle side-effect imports: import 'something';
       rawCode = rawCode.replace(/^import\\s+['"][^'"]*['"];?\\s*$/gm, '');
-      // Handle multi-line imports: import {\n  A,\n  B\n} from 'y';
-      rawCode = rawCode.replace(/^import\\s*\\{[^}]*\\}\\s*from\\s*['"][^'"]*['"];?\\s*$/gm, '');
 
       // Remove all export patterns
       // "export default function/const/class ..." -> keep the declaration
@@ -358,6 +362,17 @@ export default function LivePreview({
           isFullscreen ? "fixed inset-4 z-50 shadow-2xl" : "relative h-[400px]"
         }`}
       >
+        {isFullscreen && (
+          <button
+            type="button"
+            onClick={() => setIsFullscreen(false)}
+            className="absolute right-3 top-3 z-10 flex items-center gap-1.5 rounded-lg bg-gray-900/80 px-3 py-1.5 text-xs font-medium text-white shadow-lg backdrop-blur transition-colors hover:bg-gray-900"
+            title="Exit fullscreen"
+          >
+            <X className="h-3.5 w-3.5" />
+            Close
+          </button>
+        )}
         <iframe
           key={key}
           ref={iframeRef}
