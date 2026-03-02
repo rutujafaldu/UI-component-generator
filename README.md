@@ -20,6 +20,11 @@ An AI-powered React component generator built with **Next.js 14+**, **TypeScript
 
 <img width="2930" height="1652" alt="image" src="https://github.com/user-attachments/assets/3b8b6c5e-4cb4-4fad-aa6c-e8c5ab9dae8c" />
 
+<img width="2932" height="1652" alt="image" src="https://github.com/user-attachments/assets/d6985005-52c3-45d5-8dba-fe785da6cdbe" />
+
+<img width="2936" height="1650" alt="image" src="https://github.com/user-attachments/assets/c3015bab-c3a8-434f-a7e9-5be6b2c805dc" />
+
+<img width="2934" height="1650" alt="image" src="https://github.com/user-attachments/assets/a4d91495-e390-44b3-b55a-0a4801e443e0" />
 
 ---
 
